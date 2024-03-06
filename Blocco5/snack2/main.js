@@ -2,22 +2,22 @@ const zucchine = [
     {
         varietà: "zucchina1",
         peso: 2,
-        lunghezza: 15
+        lunghezza: 14
     },
     {
         varietà: "zucchina2",
         peso: 5,
-        lunghezza: 16
+        lunghezza: 13
     },
     {
         varietà: "zucchina3",
         peso: 3,
-        lunghezza: 17
+        lunghezza: 12
     },
     {
         varietà: "zucchina4",
         peso: 2,
-        lunghezza: 18
+        lunghezza: 11
     },
     {
         varietà: "zucchina5",
@@ -51,12 +51,19 @@ const zucchine = [
     },
 ]
 
-let totWeight = 0;
-/* zucchine.forEach(zucchina => {
-    console.log(zucchina.peso);
-    totWeight += zucchina.peso;
+//le corte
+let sum = 0;
+const zucchineCorte = zucchine.filter(zucchina =>{
+    if(zucchina.lunghezza < 15){
+        return zucchina
+    }
 })
-console.log(totWeight); */
+console.log(zucchineCorte);
+zucchineCorte.forEach(zucchina => sum += zucchina.peso)
+console.log(sum);
 
-zucchine.forEach(zucchina => totWeight += zucchina.peso);
-console.log(totWeight);
+//le lunghe
+const zucchineLunghe = zucchine.filter(zucchina => zucchina.lunghezza >= 15)
+console.log(zucchineLunghe);
+zucchineLunghe.forEach(zucchina => sum += zucchina.peso)
+console.log(sum);
